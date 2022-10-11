@@ -1,12 +1,10 @@
 # Tech-Components-JayaChandra
 Tech Components - which provides details of content
 ![image](https://user-images.githubusercontent.com/115500959/195175318-57663af9-1e03-4c00-a1b9-03996482b431.png)
-Algorithms you should know for System Design. 
+
+<br> Algorithms you should know for System Design. 
 
 𝐀𝐥𝐠𝐨𝐫𝐢𝐭𝐡𝐦 1: 𝐂𝐨𝐧𝐬𝐢𝐬𝐭𝐞𝐧𝐭 𝐇𝐚𝐬𝐡𝐢𝐧𝐠<br>
-
-If you prefer video format, watch our YouTube video here ⇩<br>
-https://lnkd.in/e6_YMrPt 
 
 If you prefer text, keep reading:<br>
 
