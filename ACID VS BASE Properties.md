@@ -14,3 +14,7 @@ Just as SQL databases are almost uniformly ACID compliant, some NoSQL databases 
 
 
 https://www.geeksforgeeks.org/acid-model-vs-base-model-for-database/
+
+| Attempt | #1    | #2    |
+| :---:   | :---: | :---: |
+| Seconds | 301   | 283   |
