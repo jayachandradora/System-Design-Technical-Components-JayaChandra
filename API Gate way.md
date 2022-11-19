@@ -17,3 +17,18 @@ Details Of API Gate way
 
 ![image](https://user-images.githubusercontent.com/115500959/202827056-13979bb4-78be-4b39-ab41-07c6cbaf7a02.png)
 
+# graphQL 
+
+GraphQL is a query language for API developed by Meta. It provides a schema of the data in the API and gives clients the power to ask for exactly what they need.
+
+In this video, we talk about:
+- What is GraphQL
+- When to use it
+- Trade-offs
+- GraphQL vs. REST
+
+Watch the video now: https://lnkd.in/ekHvFCxS
+
+![image](https://user-images.githubusercontent.com/115500959/202827939-58818a48-d2ea-46da-a639-7e753571ea21.png)
+
+
