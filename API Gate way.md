@@ -27,6 +27,16 @@ In this video, we talk about:
 - Trade-offs
 - GraphQL vs. REST
 
+The diagram below shows the quick comparison between REST and GraphQL.
+
+🔹GraphQL is a query language for APIs developed by Meta. It provides a complete description of the data in the API and gives clients the power to ask for exactly what they need.
+
+🔹GraphQL servers sit in between the client and the backend services.
+
+🔹GraphQL can aggregate multiple REST requests into one query. GraphQL server organizes the resources in a graph.
+
+🔹GraphQL supports queries, mutations (applying data modifications to resources), and subscriptions (receiving notifications on schema modifications).
+
 Watch the video now: https://lnkd.in/ekHvFCxS
 
 ![image](https://user-images.githubusercontent.com/115500959/202827939-58818a48-d2ea-46da-a639-7e753571ea21.png)
