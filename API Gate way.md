@@ -31,4 +31,22 @@ Watch the video now: https://lnkd.in/ekHvFCxS
 
 ![image](https://user-images.githubusercontent.com/115500959/202827939-58818a48-d2ea-46da-a639-7e753571ea21.png)
 
+Following is a quick summary of differences between the two.
+
+1. REST is architectural concept. GraphQL is a specification.
+2. REST defines multiple endpoints. GraphQL defines a single endpoint.
+3. REST supports multiple HTTP methods (GET, POST, PUT, DELETE, PATCH). GraphQL only allows GET and POST.
+4. REST GET URLs can be cached, stored in browser history, bookmarked. GraphQL GET cannot be bookmarked.
+5, REST allows creation of a dedicated endpoint (/health) for monitoring. In case of GraphQL, the monitoring tool needs the ability to use query parameter or read request body to check for health status.
+6. REST uses a server driven architecture, GraphQL has client driven architecture.
+7. REST does not provide type safety, GraphQL provides type safety.
+8. In REST the HTTP status code 200 denotes success and the remaining codes denote different types of errors. In GraphQL, irrespective of success/failure the status code is 200, the response body needs to be interpreted to determine success/failure and in case of failures, failure details.
+9. REST uses API versioning, GraphQL does not need it.
+10. In REST retrieving information of multiple resources, requires multiple HTTP requests and the interaction is chatty. In GraphQL all resources can be requested in a single request and the response will provide all the information.
+
+So when do we use GraphQL
+- In bandwidth sensitive use cases like mobile devices
+- For resource information consolidation use cases
+- Front ending multiple microservices API to provide a consolidated response.
+
 
