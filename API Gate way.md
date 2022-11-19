@@ -12,3 +12,6 @@ Details Of API Gate way
 8. Additionally, API gateway could do logging, Monitoring, circut breaker, analytics & caching etc.
 
 ![image](https://user-images.githubusercontent.com/115500959/201331038-32eafbd9-347d-49bf-9385-2e905080b1e2.png)
+
+![image](https://user-images.githubusercontent.com/115500959/202827056-13979bb4-78be-4b39-ab41-07c6cbaf7a02.png)
+
