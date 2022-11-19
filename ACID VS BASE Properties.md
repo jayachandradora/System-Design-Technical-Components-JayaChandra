@@ -3,7 +3,7 @@ Tech Components - which provides details of content
 
 ![image](https://user-images.githubusercontent.com/115500959/196360371-8f592704-05f1-4e84-ad8f-599138961d07.png)
 
-# BASE Properties
+# BASE Properties :joy:
 The rise in popularity of NoSQL databases provided a flexible and fluidity with ease to manipulate data and as a result, a new database model was designed, reflecting these properties. The acronym BASE is slightly more confusing than ACID but however, the words behind it suggest ways in which the BASE model is different and acronym BASE stands for:-
 
 - **Basically Available**: Instead of making it compulsory for immediate consistency, BASE-modelled NoSQL databases will ensure the availability of data by spreading and replicating it across the nodes of the database cluster.
