@@ -66,11 +66,11 @@ Enables data from one database server (the master) to be replicated to one or mo
 
 It is used to solve performance problems, handle the backup of databases, and as a solution for system failures. This architecture is suitable for scale-out solutions that have a high number of reads and a low number of writes.
 
-Pros: Data consistency - All slaves keep an updated copy of the data as it is on the master, so we can be sure of no data loss in case a master fails. Easy to use- adding a new slave or attaching an existing slave to a new master is relatively easy.
+**Pros**: Data consistency - All slaves keep an updated copy of the data as it is on the master, so we can be sure of no data loss in case a master fails. Easy to use- adding a new slave or attaching an existing slave to a new master is relatively easy.
 
-Cons: Increased latency - The master has to wait for an acknowledgment from all of its slaves, this waiting time adds latency.
+**Cons**: Increased latency - The master has to wait for an acknowledgment from all of its slaves, this waiting time adds latency.
 
-Reduced Availability: If one of the slave nodes becomes unavailable, then the master blocks all writes and waits until that synchronous replica is available again. In synchronous mode, the failure of any of the replica nodes makes the whole system comes to a standstill.
+**Reduced Availability**: If one of the slave nodes becomes unavailable, then the master blocks all writes and waits until that synchronous replica is available again. In synchronous mode, the failure of any of the replica nodes makes the whole system comes to a standstill.
 
 Write requests can hardly be scaled. The only option to scale writes requests is to scale up the Master node.
 
@@ -81,9 +81,9 @@ The multi-master technique allows any client to write data to any database serve
 
 The main problem in the Master-master architecture is that each master needs to perform each and every 'write' and with latency between masters, it is extremely difficult to ensure consistency between masters.
 
-Pros: works seamlessly in GEO-redundant architecture when datacenters are located far from each other. It can be used to protect the availability of a mission-critical database. Multimaster replication is useful for applications that require multiple points of access to database information.
+**Pros**: works seamlessly in GEO-redundant architecture when datacenters are located far from each other. It can be used to protect the availability of a mission-critical database. Multimaster replication is useful for applications that require multiple points of access to database information.
 
-Cons: Masters writing at the same time could lead to conflicts. Ensuring data consistency is challenging because there is no longer a single source of truth. Data in remote disk array is never completely synchronized or up to date. you can’t be sure that backups made on each master node contain the same data.
+**Cons**: Masters writing at the same time could lead to conflicts. Ensuring data consistency is challenging because there is no longer a single source of truth. Data in remote disk array is never completely synchronized or up to date. you can’t be sure that backups made on each master node contain the same data.
 
 ### 2. External Cache
 
