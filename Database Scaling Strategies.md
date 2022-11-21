@@ -27,7 +27,7 @@ Opening a database connection is an expensive operation, connection pooling is u
 
 # Scaling your database
   
-  ### Vertical Scaling or Scale-up:
+  ### 1. Vertical Scaling or Scale-up:
   
   The process of adding more physical resources such as memory, storage, and CPU to the existing database server for improving performance.
 
@@ -37,7 +37,7 @@ Opening a database connection is an expensive operation, connection pooling is u
 
 ![image](https://user-images.githubusercontent.com/115500959/202959148-f604070f-ca4f-47de-8585-0bc6a7b7f63b.png)
 
-  ### Horizontal scaling
+  ### 2. Horizontal scaling
   
   This approach involves adding more instances/nodes of the database to deal with an increased workload. In other words, you add more servers to the cluster when needed. Most database products will not scale in this way, and depending on how this is implemented, applications will need to be re-written to work with the database.
   
