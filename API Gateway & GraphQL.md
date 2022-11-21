@@ -17,6 +17,11 @@ Details Of API Gate way
 
 ![image](https://user-images.githubusercontent.com/115500959/202827056-13979bb4-78be-4b39-ab41-07c6cbaf7a02.png)
 
+![image](https://user-images.githubusercontent.com/115500959/203079620-b6725c61-0d16-4f3e-805b-1ef817968607.png)
+
+![image](https://user-images.githubusercontent.com/115500959/203079850-bb5ea9b7-efd7-4036-b29e-168bb6803baa.png)
+
+
 # graphQL 
 
 GraphQL is a query language for API developed by Meta. It provides a schema of the data in the API and gives clients the power to ask for exactly what they need.
