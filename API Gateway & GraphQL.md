@@ -21,6 +21,8 @@ Details Of API Gate way
 
 ![image](https://user-images.githubusercontent.com/115500959/203079850-bb5ea9b7-efd7-4036-b29e-168bb6803baa.png)
 
+![image](https://user-images.githubusercontent.com/115500959/203082508-adb73dff-cc22-4fff-a10f-240dbf45e241.png)
+
 
 # graphQL 
 
