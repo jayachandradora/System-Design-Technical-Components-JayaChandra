@@ -12,6 +12,10 @@ There are hundreds or even thousands of databases available today, such as Oracl
 
 ![image](https://user-images.githubusercontent.com/115500959/206843455-1af5eb6f-8172-4f55-b5ee-3c0a947ae351.png)
 
+However, I can't entirely agree with Document databases being used as file/immutable storage only. In fact, I would use object storage for storing media because it’s cheap and better suited for that use case. So Here we have changed to Document store database to Object store database
+
+However, document databases are usually advantageous in cases where you need an intuitive data model that is fast and easy to work with. It is flexible and allows you to have embedded arrays and sub-documents(nested objects) which makes it easy to map your application logic with the database. And are comparatively easily horizontally scalable as well.
+
 ![image](https://user-images.githubusercontent.com/115500959/195163365-c5840b3e-0710-4600-947f-429fb72e20dd.png)
 
 ### Details Here
