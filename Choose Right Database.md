@@ -3,15 +3,14 @@ Tech Components - which provides details of content
 
 There are hundreds or even thousands of databases available today, such as Oracle, MySQL, MariaDB, SQLite, PostgreSQL, Redis, ClickHouse, MongoDB, S3, Ceph, etc. How do you select the architecture for your system? My short summary is as follows:
 
-🔹Relational database. Almost anything could be solved by them. 
-🔹In-memory store. Their speed and limited data size make them ideal for fast operations.
-🔹Time-series database. Store and manage time-stamped data.
-🔹Graph database. It is suitable for complex relationships between unstructured objects.
-🔹Document store. They are good for large immutable data.
-🔹Wide column store. They are usually used for big data, analytics, reporting, etc., which needs denormalized data.
+🔹Relational database. Almost anything could be solved by them. <br>
+🔹In-memory store. Their speed and limited data size make them ideal for fast operations. <br>
+🔹Time-series database. Store and manage time-stamped data. <br>
+🔹Graph database. It is suitable for complex relationships between unstructured objects. <br>
+🔹Document store. They are good for large immutable data. <br>
+🔹Wide column store. They are usually used for big data, analytics, reporting, etc., which needs denormalized data. <br>
 
-![image](https://user-images.githubusercontent.com/115500959/206843091-1533e725-b455-45b3-9002-8c234c1bbe74.png)
-
+![image](https://user-images.githubusercontent.com/115500959/206843210-76e0bbd3-96fd-484c-95c0-2a6c3b07b8ed.png)
 
 ![image](https://user-images.githubusercontent.com/115500959/195163365-c5840b3e-0710-4600-947f-429fb72e20dd.png)
 
