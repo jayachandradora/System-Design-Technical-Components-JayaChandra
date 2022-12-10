@@ -10,7 +10,7 @@ There are hundreds or even thousands of databases available today, such as Oracl
 🔹Document store. They are good for large immutable data. <br>
 🔹Wide column store. They are usually used for big data, analytics, reporting, etc., which needs denormalized data. <br>
 
-![image](https://user-images.githubusercontent.com/115500959/206843210-76e0bbd3-96fd-484c-95c0-2a6c3b07b8ed.png)
+![image](https://user-images.githubusercontent.com/115500959/206843455-1af5eb6f-8172-4f55-b5ee-3c0a947ae351.png)
 
 ![image](https://user-images.githubusercontent.com/115500959/195163365-c5840b3e-0710-4600-947f-429fb72e20dd.png)
 
