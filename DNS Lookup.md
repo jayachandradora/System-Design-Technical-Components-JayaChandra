@@ -39,3 +39,5 @@ the browser goes to DNS servers to do a recursive DNS lookup until the IP addres
 </𝘩𝘵𝘮𝘭><br>
 
 6. The browser renders the HTML content.<br>
+
+![image](https://user-images.githubusercontent.com/115500959/207751464-bbe34d12-1c02-4f7c-a539-1a78a2b5ad7f.png)
