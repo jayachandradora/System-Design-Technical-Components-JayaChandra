@@ -1,4 +1,4 @@
-# System-Design-Technical-Components-JayaChandra
+# Hazelcast as an IMDG
 Tech Components - which provides details of content
 
 Hazelcast is indeed a distributed in-memory data grid (IMDG) with caching capabilities. Here's a breakdown of the key points:
