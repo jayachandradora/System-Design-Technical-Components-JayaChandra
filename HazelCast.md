@@ -6,20 +6,29 @@ Hazelcast is indeed a distributed in-memory data grid (IMDG) with caching capabi
 ## Hazelcast as an IMDG:
 
 **In-memory focus:** Hazelcast primarily stores data in Random Access Memory (RAM) for faster access compared to traditional databases that rely on disk storage.
+
 **Distributed and Scalable:** Data is distributed across a cluster of servers (nodes) for scalability and fault tolerance. This means you can add more nodes to handle increased data volume or workload.
+
 **Data Structures:** Hazelcast offers various data structures beyond simple key-value pairs, such as maps, lists, sets, and queues. These structures enable storing and manipulating complex data efficiently.
+
 **Near Cache (Optional):** Hazelcast can be configured to maintain a local cache on each client node, further reducing latency for frequently accessed data.
 
 ## Hazelcast's Caching Capabilities:
 
 **Fast Reads and Writes:** Data stored in Hazelcast's in-memory structures can be accessed and modified very quickly, making it ideal for caching frequently accessed data.
+
 **Cache Expiration:** Hazelcast allows setting expiration times for cached entries, ensuring data freshness by automatically invalidating them after a defined period.
+
 **Cache Eviction Strategies:** Hazelcast supports various cache eviction strategies (like Least Recently Used - LRU) to manage cache size and remove less frequently accessed entries when needed.
+
 **Integration with Standard Caching APIs:** Hazelcast can integrate with popular caching frameworks like JCache, allowing developers to leverage familiar caching APIs.
-Key Differences from Traditional Caching Systems:
+
+### Key Differences from Traditional Caching Systems:
 
 **Rich Data Structures:** Hazelcast provides a wider range of data structures compared to simpler key-value stores often used for caching.
+
 **Distributed and Scalable:** Hazelcast is designed for distributed environments and offers inherent scalability, unlike some standalone caching systems.
+
 **Near Caching:** Hazelcast's near cache functionality can further improve performance for geographically distributed applications.
 
 **In Summary:**
