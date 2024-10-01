@@ -39,3 +39,45 @@ While Hazelcast excels at caching due to its in-memory nature and fast access ti
 ![image](https://user-images.githubusercontent.com/115500959/196359227-58c806f4-a4c6-45ff-95b0-27159a79cd0c.png)
 ![image](https://user-images.githubusercontent.com/115500959/196359257-3c6249b4-fb3e-483f-87c1-e2f2a8252cd2.png)
 ![image](https://user-images.githubusercontent.com/115500959/196359279-c9d8c8dd-00af-49d8-80e9-11740b73e66b.png)
+
+
+ When it comes to performance comparison between **DB hits**, **Hazelcast cache hits**, and **JVM cache hits**, the performance hierarchy is generally as follows:
+
+1. **JVM Cache Hits** (In-Memory Cache)
+2. **Hazelcast Cache Hits** (Distributed Cache)
+3. **DB Hits** (Database Access)
+
+### 1. **JVM Cache Hits (In-Memory Cache)**
+   - **Speed:** Fastest option, as data is stored and accessed directly from the same Java process in the memory (heap).
+   - **Latency:** Extremely low, since there's no network or disk access involved.
+   - **Use Case:** Ideal for frequently accessed, small amounts of data that fit comfortably in memory (e.g., Java's `ConcurrentHashMap`, `Ehcache`).
+   - **Pros:** Super fast, no network overhead, low latency.
+   - **Cons:** Limited by the JVM’s heap size. Can lead to memory pressure and garbage collection overhead if not managed well.
+
+### 2. **Hazelcast Cache Hits (Distributed Cache)**
+   - **Speed:** Slower than JVM cache, but still very fast, as it's a distributed in-memory data grid. Hazelcast replicates data across multiple nodes and allows horizontal scaling.
+   - **Latency:** Slight network latency because the cache is distributed, but still much faster than hitting the database.
+   - **Use Case:** Suitable for large-scale applications that require distributed caching across multiple servers. It also provides fault tolerance by replicating data.
+   - **Pros:** Scalable, fault-tolerant, supports high availability, shared across multiple JVMs.
+   - **Cons:** Network latency (though small), slightly more complex to manage than a local cache.
+
+### 3. **DB Hits (Database Access)**
+   - **Speed:** Slowest option, as it involves querying the database (often on disk) and network calls if the database is remote.
+   - **Latency:** High, due to network access, disk I/O, and query execution.
+   - **Use Case:** Used when data is not in cache or needs to be persistently stored.
+   - **Pros:** Reliable and persistent data storage.
+   - **Cons:** High latency, can become a performance bottleneck under heavy load.
+
+### Which is Better for Performance?
+- **JVM cache hits** will give you the best performance in terms of raw speed, as the data is accessed directly from local memory with no network overhead.
+- **Hazelcast cache hits** offer a good balance between speed and scalability, especially when working with distributed systems where you need to maintain consistency across multiple nodes.
+- **DB hits** are the slowest option and should be minimized when possible for performance reasons.
+
+### Practical Usage:
+- **JVM cache (local cache)** is ideal for small, frequently accessed data that doesn’t need to be shared between nodes.
+- **Hazelcast (distributed cache)** is better when you need to scale out across multiple servers or if you need fault tolerance and consistency across nodes.
+- **Database hits** should be limited to cases where fresh data is needed or when there is no cache hit.
+
+If your goal is optimal performance, the hierarchy is clear: prefer **JVM cache** when possible, then **Hazelcast cache**, and avoid direct **DB hits** unless necessary. 
+
+Does this match your use case, or are you dealing with specific scenarios where trade-offs might differ?
