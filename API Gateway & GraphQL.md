@@ -66,4 +66,260 @@ So when do we use GraphQL
 - For resource information consolidation use cases
 - Front ending multiple microservices API to provide a consolidated response.
 
+## Designing a GraphQL API in Java
+
+Designing a GraphQL API in Java can be accomplished using libraries like **Spring Boot** with **GraphQL Java**. Below is a step-by-step guide to creating a simple GraphQL API for a blog application.
+
+### Step 1: Set Up Your Project
+
+You can create a new Spring Boot project using Spring Initializr (https://start.spring.io/) with the following dependencies:
+
+- Spring Web
+- Spring Boot DevTools
+- Spring Data JPA
+- H2 Database (for an in-memory database)
+- GraphQL Spring Boot Starter
+
+### Step 2: Define Your Data Model
+
+Create entities for `User`, `Post`, and `Comment`. Here’s a simple example:
+
+```java
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
+    private String email;
+
+    @OneToMany(mappedBy = "author")
+    private List<Post> posts;
+
+    // Getters and Setters
+}
+
+@Entity
+public class Post {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    @OneToMany(mappedBy = "post")
+    private List<Comment> comments;
+
+    // Getters and Setters
+}
+
+@Entity
+public class Comment {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User author;
+
+    @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    // Getters and Setters
+}
+```
+
+### Step 3: Create Repositories
+
+Define Spring Data JPA repositories for each entity:
+
+```java
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepository extends JpaRepository<User, Long> {}
+public interface PostRepository extends JpaRepository<Post, Long> {}
+public interface CommentRepository extends JpaRepository<Comment, Long> {}
+```
+
+### Step 4: Define the GraphQL Schema
+
+Create a GraphQL schema file (`schema.graphqls`) in the `src/main/resources` directory:
+
+```graphql
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    posts: [Post]
+}
+
+type Post {
+    id: ID!
+    title: String!
+    content: String!
+    author: User!
+    comments: [Comment]
+}
+
+type Comment {
+    id: ID!
+    content: String!
+    author: User!
+    post: Post!
+}
+
+type Query {
+    users: [User]
+    user(id: ID!): User
+    posts: [Post]
+    post(id: ID!): Post
+}
+
+type Mutation {
+    createUser(name: String!, email: String!): User
+    createPost(title: String!, content: String!, authorId: ID!): Post
+    createComment(content: String!, authorId: ID!, postId: ID!): Comment
+}
+```
+
+### Step 5: Implement Resolvers
+
+Create a GraphQL resolver to handle queries and mutations:
+
+```java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import graphql.kickstart.tools.GraphQLMutationResolver;
+import graphql.kickstart.tools.GraphQLQueryResolver;
+
+import java.util.List;
+
+@Component
+public class BlogResolver implements GraphQLQueryResolver, GraphQLMutationResolver {
+
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private PostRepository postRepository;
+    @Autowired
+    private CommentRepository commentRepository;
+
+    // Queries
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    public User getUser(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    public List<Post> getPosts() {
+        return postRepository.findAll();
+    }
+
+    public Post getPost(Long id) {
+        return postRepository.findById(id).orElse(null);
+    }
+
+    // Mutations
+    public User createUser(String name, String email) {
+        User user = new User();
+        user.setName(name);
+        user.setEmail(email);
+        return userRepository.save(user);
+    }
+
+    public Post createPost(String title, String content, Long authorId) {
+        Post post = new Post();
+        post.setTitle(title);
+        post.setContent(content);
+        post.setAuthor(userRepository.findById(authorId).orElse(null));
+        return postRepository.save(post);
+    }
+
+    public Comment createComment(String content, Long authorId, Long postId) {
+        Comment comment = new Comment();
+        comment.setContent(content);
+        comment.setAuthor(userRepository.findById(authorId).orElse(null));
+        comment.setPost(postRepository.findById(postId).orElse(null));
+        return commentRepository.save(comment);
+    }
+}
+```
+
+### Step 6: Application Properties
+
+Configure your application in `src/main/resources/application.properties` for the H2 database:
+
+```properties
+spring.h2.console.enabled=true
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+```
+
+### Step 7: Run Your Application
+
+Run your Spring Boot application. You should be able to access the GraphQL endpoint at `http://localhost:8080/graphql`.
+
+### Step 8: Example Queries and Mutations
+
+1. **Query all users:**
+
+```graphql
+query {
+  users {
+    id
+    name
+    email
+  }
+}
+```
+
+2. **Fetch a specific post:**
+
+```graphql
+query {
+  post(id: 1) {
+    title
+    content
+    author {
+      name
+    }
+    comments {
+      content
+      author {
+        name
+      }
+    }
+  }
+}
+```
+
+3. **Create a new user:**
+
+```graphql
+mutation {
+  createUser(name: "Charlie", email: "charlie@example.com") {
+    id
+    name
+  }
+}
+```
+
+### Summary
+
+This example demonstrates how to create a simple GraphQL API in Java using Spring Boot. You can define your data model, set up repositories, create a GraphQL schema, and implement resolvers to handle queries and mutations. With this setup, you can efficiently manage data for your application using GraphQL.
+
 
