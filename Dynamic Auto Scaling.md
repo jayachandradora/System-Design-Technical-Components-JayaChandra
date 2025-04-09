@@ -10,9 +10,13 @@ The scale-down-kafka-consumer CronJob will run at 6 PM and set the replica count
 The scale-back-kafka-consumer CronJob will run at 8 PM and set the replica count to 20.
 
 ### CronJob Schedule Syntax:
-"0 10 * * *" means "run at 10 AM every day".
-"0 18 * * *" means "run at 6 PM every day".
-"0 20 * * *" means "run at 8 PM every day".
+
+"0 10 * * *" means "run at 10 AM every day". <br>
+
+"0 18 * * *" means "run at 6 PM every day". <br>
+
+"0 20 * * *" means "run at 8 PM every day". <br>
+
 kubectl scale command used in the CronJob is simple and relies on the bitnami/kubectl image. If you have your custom containers, you can adjust accordingly.
 
 Certainly! Here's a suggested folder structure and a complete set of YAML files that you can use to implement the solution.
